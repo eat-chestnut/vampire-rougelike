@@ -62,6 +62,7 @@ config/features=PackedStringArray("4.5", "Mobile")
 
 [autoload]
 
+Pause="*res://scenes/System/pause_manager.gd"
 [display]
 
 window/size/viewport_width=1920
