@@ -1,17 +1,22 @@
 extends CharacterBody2D
 class_name Enemy
 
-@onready var chase_area: Area2D = $ChaseArea
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var attack_area: Area2D = $AttackArea
+@export var chase_area: Area2D
+@export var animated_sprite_2d: AnimatedSprite2D
+@export var attack_area: Area2D
 @onready var health: Health = _resolve_health()
-@onready var item_dropper: ItemDropper = $ItemDropper
+@export var item_dropper: ItemDropper
 
 @export var move_speed: int = 50
 var player: Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if chase_area == null or animated_sprite_2d == null or attack_area == null or item_dropper == null:
+		push_error("Enemy: Missing exported node reference(s). Check ChaseArea/AnimatedSprite2D/AttackArea/ItemDropper assignment.")
+		set_process(false)
+		set_physics_process(false)
+		return
 	chase_area.body_entered.connect(on_body_enter_chase_area)
 	chase_area.body_exited.connect(on_body_exit_chase_area)
 	attack_area.body_entered.connect(on_body_enter_attack_area)
@@ -30,16 +35,19 @@ func on_body_exit_chase_area(body: Node2D) -> void:
 
 func on_body_enter_attack_area(body: Node2D) -> void:
 	if body is Player:
-		var player_health : Health = body.get_node_or_null("Health")
-		if player_health != null:
+		var player_body := body as Player
+		if player_body.health == null:
+			push_error("Enemy: Player Health not found. Expected Player.health to be set.")
+		else:
 			var damage_amount = 40
-			player_health.damage(damage_amount)
-		var knock_back : KnockBack = body.get_node_or_null("KnockBack")
-		if knock_back != null:
+			player_body.health.damage(damage_amount)
+		if player_body.knock_back == null:
+			push_error("Enemy: Player KnockBack not found. Expected Player.knock_back to be set.")
+		else:
 			var direction: Vector2 = (body.global_position - global_position).normalized()
 			var force: float = 250
 			var duration: float = 0.1
-			knock_back.apply_knock_back(direction, force, duration)
+			player_body.knock_back.apply_knock_back(direction, force, duration)
 
 func chase_player() -> void:
 	var chase_direction: Vector2 = Vector2.ZERO

@@ -5,12 +5,16 @@ extends ProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if health == null and is_player_health_bar:
-		health = _resolve_player_health()
-	if health != null:
-		call_deferred("initialize")
-	elif is_player_health_bar:
-		push_error("HealthBar: Player Health not found. Assign 'health' or add player to group 'player'.")
+	if health == null:
+		if is_player_health_bar:
+			health = _resolve_player_health()
+			if health == null:
+				push_error("HealthBar: Player Health not found. Assign 'health' or add player to group 'player'.")
+				return
+		else:
+			push_error("HealthBar: Health reference not assigned.")
+			return
+	call_deferred("initialize")
 
 func initialize() -> void:
 	max_value = health.max_health
@@ -34,4 +38,6 @@ func _resolve_player_health() -> Health:
 			player = candidates[0]
 	if player == null:
 		return null
+	if player is Player:
+		return (player as Player).health
 	return player.get_node_or_null("Health") as Health

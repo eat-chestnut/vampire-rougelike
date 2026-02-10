@@ -2,15 +2,22 @@ extends CharacterBody2D
 class_name Player
 
 @export var move_speed : int = 100
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var knock_back: KnockBack = $KnockBack
+@export var animated_sprite_2d: AnimatedSprite2D
+@export var knock_back: KnockBack
 @onready var health: Health = _resolve_health()
-@onready var pickup_area: Area2D = $PickupArea
+@export var pickup_area: Area2D
 
 var is_knocking_back : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if animated_sprite_2d == null or knock_back == null:
+		push_error("Player: Missing exported node reference(s). Check AnimatedSprite2D/KnockBack assignment.")
+		set_process(false)
+		set_physics_process(false)
+		return
+	if pickup_area == null:
+		push_error("Player: PickupArea not assigned. Item pickup will be disabled.")
 	add_to_group("player")
 	knock_back.start_knock_back.connect(on_start_knock_back)
 	knock_back.stop_knock_back.connect(on_stop_knock_back)

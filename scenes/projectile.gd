@@ -1,7 +1,7 @@
 extends Node2D
 class_name Projectile
 
-@onready var area_2d: Area2D = $Area2D
+@export var area_2d: Area2D
 @export var flying_speed : int = 300
 @export var impact_effect_scene: PackedScene
 
@@ -13,6 +13,10 @@ func set_up(flying_direction: Vector2) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if area_2d == null:
+		push_error("Projectile: Area2D not assigned.")
+		set_process(false)
+		return
 	area_2d.body_entered.connect(on_body_entered)
 
 
@@ -23,10 +27,12 @@ func _process(delta: float) -> void:
 
 func on_body_entered(body: Node2D) -> void:
 	if body is Enemy:
-		var enemy_health: Health = body.get_node_or_null("Health")
-		if enemy_health != null:
+		var enemy_body := body as Enemy
+		if enemy_body.health == null:
+			push_error("Projectile: Enemy Health not found. Expected Enemy.health to be set.")
+		else:
 			var damage_amount = 40
-			enemy_health.damage(damage_amount)
+			enemy_body.health.damage(damage_amount)
 	var impact_effect: Node2D = impact_effect_scene.instantiate() as Node2D
 	get_tree().current_scene.add_child(impact_effect)
 	impact_effect.global_position = global_position

@@ -2,7 +2,7 @@ extends Node2D
 
 @export var projectile_scene: PackedScene
 
-@onready var shoot_timer: Timer = $ShootTimer
+@export var shoot_timer: Timer
 
 var start_shooting : bool = false
 var ready_to_shoot : bool = true
@@ -15,6 +15,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if shoot_timer == null:
+		push_error("ShootAttack: ShootTimer not assigned.")
+		set_process(false)
+		return
 	shoot_timer.timeout.connect(on_time_out)
 
 

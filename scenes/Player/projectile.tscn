@@ -43,9 +43,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8fh4"]
 radius = 5.0990195
 
-[node name="Projectile" type="Node2D"]
+[node name="Projectile" type="Node2D" node_paths=PackedStringArray("area_2d")]
 script = ExtResource("1_r8fh4")
 impact_effect_scene = ExtResource("2_d3pm1")
+area_2d = NodePath("Area2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -1)

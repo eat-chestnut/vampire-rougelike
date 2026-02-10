@@ -98,10 +98,14 @@ item_scene = ExtResource("8_77pr6")
 weight = 1.0
 metadata/_custom_type_script = "uid://cr3phy4dxwgef"
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("chase_area", "animated_sprite_2d", "attack_area", "item_dropper")]
 collision_layer = 2
 collision_mask = 12
 script = ExtResource("1_xmdyo")
+chase_area = NodePath("ChaseArea")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
+attack_area = NodePath("AttackArea")
+item_dropper = NodePath("ItemDropper")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)

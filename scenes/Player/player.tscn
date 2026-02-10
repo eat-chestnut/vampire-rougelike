@@ -166,10 +166,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rm18g"]
 radius = 52.03845
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite_2d", "knock_back", "pickup_area")]
 collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_2nety")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
+knock_back = NodePath("KnockBack")
+pickup_area = NodePath("PickupArea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.5)
@@ -182,10 +185,11 @@ animation = &"run"
 autoplay = "idle"
 frame_progress = 0.59663755
 
-[node name="ShootAttack" type="Node2D" parent="."]
+[node name="ShootAttack" type="Node2D" parent="." node_paths=PackedStringArray("shoot_timer")]
 position = Vector2(0, 4)
 script = ExtResource("3_jiyxm")
 projectile_scene = ExtResource("4_tro03")
+shoot_timer = NodePath("ShootTimer")
 
 [node name="ShootTimer" type="Timer" parent="ShootAttack"]
 wait_time = 0.5

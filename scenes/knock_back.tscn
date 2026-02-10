@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://tr3m1416q12s" path="res://scenes/knock_back.gd" id="1_pwxdb"]
 
-[node name="KnockBack" type="Node2D"]
+[node name="KnockBack" type="Node2D" node_paths=PackedStringArray("timer")]
 script = ExtResource("1_pwxdb")
+timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

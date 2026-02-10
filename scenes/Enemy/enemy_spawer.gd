@@ -5,10 +5,13 @@ extends Node2D
 @export var minimum_spawn_delay = 2
 @export var maximum_spawn_delay = 2
 
-@onready var timer: Timer = $Timer
+@export var timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if timer == null:
+		push_error("EnemySpawer: Timer not assigned.")
+		return
 	timer.timeout.connect(on_time_out)
 	timer.wait_time = get_random_spawn_delay()
 	timer.start()
