@@ -3,7 +3,6 @@
 [ext_resource type="TileSet" uid="uid://duf6c0we11hso" path="res://Resources/tileset.tres" id="1_3su1p"]
 [ext_resource type="PackedScene" uid="uid://dgupqoxka7dbb" path="res://scenes/UI/ui.tscn" id="1_ntsx5"]
 [ext_resource type="PackedScene" uid="uid://dfjo61auj2teo" path="res://scenes/Player/player.tscn" id="1_otw6a"]
-[ext_resource type="PackedScene" uid="uid://70ecrklcvcsc" path="res://scenes/Health/health.tscn" id="4_2c0mx"]
 [ext_resource type="PackedScene" uid="uid://caed1qesi34bo" path="res://scenes/Enemy/enemy_spawer.tscn" id="5_ntsx5"]
 
 [sub_resource type="TileSet" id="TileSet_3su1p"]
@@ -28,9 +27,6 @@ tile_set = ExtResource("1_3su1p")
 zoom = Vector2(3, 3)
 
 [node name="Player" parent="." instance=ExtResource("1_otw6a")]
-
-[node name="Health" parent="." instance=ExtResource("4_2c0mx")]
-position = Vector2(22, 22)
 
 [node name="EnemySpawer" parent="." instance=ExtResource("5_ntsx5")]
 position = Vector2(-216, -1)
