@@ -9,6 +9,7 @@ class_name Enemy
 
 @export var move_speed: int = 50
 var player: Player
+var is_dead: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -77,6 +78,9 @@ func handle_rotation(move_direction: Vector2) -> void:
 		animated_sprite_2d.scale = Vector2(-1, 1)
 
 func _on_health_died() -> void:
+	if is_dead:
+		return
+	is_dead = true
 	item_dropper.drop_item()
 	queue_free()
 
