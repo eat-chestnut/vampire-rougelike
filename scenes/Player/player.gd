@@ -11,6 +11,7 @@ var is_knocking_back : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("player")
 	knock_back.start_knock_back.connect(on_start_knock_back)
 	knock_back.stop_knock_back.connect(on_stop_knock_back)
 
