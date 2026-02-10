@@ -17,9 +17,12 @@ func _ready() -> void:
 		set_process(false)
 		set_physics_process(false)
 		return
-	chase_area.body_entered.connect(on_body_enter_chase_area)
-	chase_area.body_exited.connect(on_body_exit_chase_area)
-	attack_area.body_entered.connect(on_body_enter_attack_area)
+	if not chase_area.body_entered.is_connected(on_body_enter_chase_area):
+		chase_area.body_entered.connect(on_body_enter_chase_area)
+	if not chase_area.body_exited.is_connected(on_body_exit_chase_area):
+		chase_area.body_exited.connect(on_body_exit_chase_area)
+	if not attack_area.body_entered.is_connected(on_body_enter_attack_area):
+		attack_area.body_entered.connect(on_body_enter_attack_area)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -11,7 +11,8 @@ func _ready() -> void:
 	if timer == null:
 		push_error("KnockBack: Timer not assigned.")
 		return
-	timer.timeout.connect(on_time_out)
+	if not timer.timeout.is_connected(on_time_out):
+		timer.timeout.connect(on_time_out)
 
 func apply_knock_back(direction: Vector2, force: float, duration: float) -> void:
 	if timer == null:

@@ -3,7 +3,8 @@ extends AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animation_finished.connect(on_animation_finished)
+	if not animation_finished.is_connected(on_animation_finished):
+		animation_finished.connect(on_animation_finished)
 
 func on_animation_finished() -> void:
 	queue_free()

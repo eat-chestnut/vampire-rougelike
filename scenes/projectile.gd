@@ -17,7 +17,8 @@ func _ready() -> void:
 		push_error("Projectile: Area2D not assigned.")
 		set_process(false)
 		return
-	area_2d.body_entered.connect(on_body_entered)
+	if not area_2d.body_entered.is_connected(on_body_entered):
+		area_2d.body_entered.connect(on_body_entered)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

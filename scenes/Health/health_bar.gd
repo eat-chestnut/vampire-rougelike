@@ -21,7 +21,8 @@ func initialize() -> void:
 	min_value = 0
 	value = health.current_health
 	
-	health.damaged.connect(on_damaged)
+	if not health.damaged.is_connected(on_damaged):
+		health.damaged.connect(on_damaged)
 	
 func on_damaged(current_health: float, max_health: float) -> void:
 	max_value = max_health

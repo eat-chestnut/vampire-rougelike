@@ -12,7 +12,8 @@ func _ready() -> void:
 	if timer == null:
 		push_error("EnemySpawer: Timer not assigned.")
 		return
-	timer.timeout.connect(on_time_out)
+	if not timer.timeout.is_connected(on_time_out):
+		timer.timeout.connect(on_time_out)
 	timer.wait_time = get_random_spawn_delay()
 	timer.start()
 	

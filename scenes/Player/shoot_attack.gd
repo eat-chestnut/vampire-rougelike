@@ -19,7 +19,8 @@ func _ready() -> void:
 		push_error("ShootAttack: ShootTimer not assigned.")
 		set_process(false)
 		return
-	shoot_timer.timeout.connect(on_time_out)
+	if not shoot_timer.timeout.is_connected(on_time_out):
+		shoot_timer.timeout.connect(on_time_out)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

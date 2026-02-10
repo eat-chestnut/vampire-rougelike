@@ -19,8 +19,10 @@ func _ready() -> void:
 	if pickup_area == null:
 		push_error("Player: PickupArea not assigned. Item pickup will be disabled.")
 	add_to_group("player")
-	knock_back.start_knock_back.connect(on_start_knock_back)
-	knock_back.stop_knock_back.connect(on_stop_knock_back)
+	if not knock_back.start_knock_back.is_connected(on_start_knock_back):
+		knock_back.start_knock_back.connect(on_start_knock_back)
+	if not knock_back.stop_knock_back.is_connected(on_stop_knock_back):
+		knock_back.stop_knock_back.connect(on_stop_knock_back)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
