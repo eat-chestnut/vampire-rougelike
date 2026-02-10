@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://5ptke7eo6d4f"]
+
+[ext_resource type="Script" uid="uid://b0gvoxnwtgqkg" path="res://Scences/projectile.gd" id="1_r8fh4"]
+[ext_resource type="PackedScene" uid="uid://b5brejnca20x" path="res://Scences/Player/impact_effect.tscn" id="2_d3pm1"]
+[ext_resource type="Texture2D" uid="uid://bfo7ubr5vtovf" path="res://Assets/Items/bullet.png" id="2_ycon4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3pm1"]
+atlas = ExtResource("2_ycon4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb6xj"]
+atlas = ExtResource("2_ycon4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntlt1"]
+atlas = ExtResource("2_ycon4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5880"]
+atlas = ExtResource("2_ycon4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17ogn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3pm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb6xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntlt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5880")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8fh4"]
+radius = 5.0990195
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_r8fh4")
+impact_effect_scene = ExtResource("2_d3pm1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -1)
+sprite_frames = SubResource("SpriteFrames_17ogn")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_r8fh4")

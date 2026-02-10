@@ -1,0 +1,204 @@
+[gd_scene load_steps=30 format=3 uid="uid://dfjo61auj2teo"]
+
+[ext_resource type="Texture2D" uid="uid://c0fs2tysquhjd" path="res://Assets/Player/knight.png" id="1_1h2j3"]
+[ext_resource type="Script" uid="uid://02mhto5j02ts" path="res://Scences/Player/player.gd" id="1_2nety"]
+[ext_resource type="Script" uid="uid://bph0tp316qaro" path="res://Scences/Player/shoot_attack.gd" id="3_jiyxm"]
+[ext_resource type="PackedScene" uid="uid://5ptke7eo6d4f" path="res://Scences/Player/projectile.tscn" id="4_tro03"]
+[ext_resource type="PackedScene" uid="uid://b8031oto2a3y4" path="res://Scences/knock_back.tscn" id="5_246pd"]
+[ext_resource type="PackedScene" uid="uid://70ecrklcvcsc" path="res://Scences/Health/health.tscn" id="6_rm18g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nety"]
+size = Vector2(10, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiyxm"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tro03"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_246pd"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm18g"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoslq"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkc8l"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b7gk"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ds4d"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v5wl"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpapx"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sns4v"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30lnb"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jdvh"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddrc5"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2f7w"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjwba"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5s2q"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfdxr"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtxgp"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4une"]
+atlas = ExtResource("1_1h2j3")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vuhku"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiyxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tro03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_246pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm18g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoslq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkc8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b7gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ds4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v5wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpapx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sns4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30lnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jdvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddrc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2f7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjwba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5s2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfdxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtxgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4une")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rm18g"]
+radius = 52.03845
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("1_2nety")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_2nety")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_vuhku")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.59663755
+
+[node name="ShootAttack" type="Node2D" parent="."]
+position = Vector2(0, 4)
+script = ExtResource("3_jiyxm")
+projectile_scene = ExtResource("4_tro03")
+
+[node name="ShootTimer" type="Timer" parent="ShootAttack"]
+wait_time = 0.5
+
+[node name="KnockBack" parent="." instance=ExtResource("5_246pd")]
+
+[node name="Health" parent="." instance=ExtResource("6_rm18g")]
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("CircleShape2D_rm18g")
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]

@@ -1,0 +1,140 @@
+[gd_scene load_steps=23 format=3 uid="uid://5jaue47wqb7s"]
+
+[ext_resource type="Script" uid="uid://cunjjbhodbrps" path="res://Scences/Enemy/enemy.gd" id="1_xmdyo"]
+[ext_resource type="Texture2D" uid="uid://cq70vdfkq00jg" path="res://Assets/Enemy/demon_.png" id="2_5cwm4"]
+[ext_resource type="PackedScene" uid="uid://70ecrklcvcsc" path="res://Scences/Health/health.tscn" id="3_5cwm4"]
+[ext_resource type="PackedScene" uid="uid://dsm3cpcb68jn5" path="res://Scences/Health/health_bar.tscn" id="4_awr2l"]
+[ext_resource type="PackedScene" uid="uid://deabiidv8snce" path="res://Scences/Enemy/item_dropper.tscn" id="5_24j6t"]
+[ext_resource type="Script" uid="uid://cr3phy4dxwgef" path="res://Resources/item_spawn_resource.gd" id="6_hcay5"]
+[ext_resource type="PackedScene" uid="uid://b5t7ey71e1dnk" path="res://Scences/Items/red_potion.tscn" id="7_7n7qs"]
+[ext_resource type="PackedScene" uid="uid://c6ni14gjxl6t4" path="res://Scences/Items/blue_potion.tscn" id="8_77pr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awr2l"]
+size = Vector2(10, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24j6t"]
+atlas = ExtResource("2_5cwm4")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wbfl"]
+atlas = ExtResource("2_5cwm4")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx35c"]
+atlas = ExtResource("2_5cwm4")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcay5"]
+atlas = ExtResource("2_5cwm4")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n7qs"]
+atlas = ExtResource("2_5cwm4")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77pr6"]
+atlas = ExtResource("2_5cwm4")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha8uk"]
+atlas = ExtResource("2_5cwm4")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ykx2"]
+atlas = ExtResource("2_5cwm4")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgabv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24j6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wbfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx35c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcay5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n7qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77pr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha8uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ykx2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k1fg"]
+radius = 37.01351
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmdyo"]
+
+[sub_resource type="Resource" id="Resource_ha8uk"]
+script = ExtResource("6_hcay5")
+item_scene = ExtResource("7_7n7qs")
+weight = 0.5
+metadata/_custom_type_script = "uid://cr3phy4dxwgef"
+
+[sub_resource type="Resource" id="Resource_1ykx2"]
+script = ExtResource("6_hcay5")
+item_scene = ExtResource("8_77pr6")
+weight = 1.0
+metadata/_custom_type_script = "uid://cr3phy4dxwgef"
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_xmdyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_awr2l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bgabv")
+animation = &"run"
+autoplay = "idle"
+
+[node name="ChaseArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+shape = SubResource("CircleShape2D_7k1fg")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_xmdyo")
+
+[node name="Health" parent="." instance=ExtResource("3_5cwm4")]
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("4_awr2l")]
+offset_left = -8.0
+offset_top = -10.0
+offset_right = 8.0
+offset_bottom = -6.0
+health = NodePath("../Health")
+
+[node name="ItemDropper" parent="." instance=ExtResource("5_24j6t")]
+item_spawn_resources = Array[ExtResource("6_hcay5")]([SubResource("Resource_ha8uk"), SubResource("Resource_1ykx2")])
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
