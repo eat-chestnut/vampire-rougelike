@@ -23,7 +23,7 @@ func get_random_spawn_position() -> Vector2:
 	var r = sqrt(randf_range(0 , spawn_radius * spawn_radius))
 	
 	var x = global_position.x + r *cos(theta)
-	var y = global_position.y + r * sign(theta)
+	var y = global_position.y + r * sin(theta)
 	
 	return Vector2(x, y)
 
