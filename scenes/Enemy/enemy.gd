@@ -4,7 +4,7 @@ class_name Enemy
 @onready var chase_area: Area2D = $ChaseArea
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AttackArea
-@onready var health: Health = $"../Health"
+@onready var health: Health = _resolve_health()
 @onready var item_dropper: ItemDropper = $ItemDropper
 
 @export var move_speed: int = 50
@@ -68,3 +68,12 @@ func handle_rotation(move_direction: Vector2) -> void:
 func _on_health_died() -> void:
 	item_dropper.drop_item()
 	queue_free()
+
+func _resolve_health() -> Health:
+	var resolved := get_node_or_null("Health") as Health
+	if resolved == null:
+		push_error("Enemy: Health node not found. Expected child node 'Health'.")
+		resolved = Health.new()
+		resolved.name = "Health"
+		add_child(resolved)
+	return resolved

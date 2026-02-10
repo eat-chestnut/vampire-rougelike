@@ -4,7 +4,7 @@ class_name Player
 @export var move_speed : int = 100
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var knock_back: KnockBack = $KnockBack
-@onready var health: Health = $"../Health"
+@onready var health: Health = _resolve_health()
 @onready var pickup_area: Area2D = $PickupArea
 
 var is_knocking_back : bool = false
@@ -53,3 +53,12 @@ func _on_health_died() -> void:
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	area.pickup(self)
+
+func _resolve_health() -> Health:
+	var resolved := get_node_or_null("Health") as Health
+	if resolved == null:
+		push_error("Player: Health node not found. Expected child node 'Health'.")
+		resolved = Health.new()
+		resolved.name = "Health"
+		add_child(resolved)
+	return resolved
