@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6ni14gjxl6t4"]
 
-[ext_resource type="PackedScene" uid="uid://duxp353xkq011" path="res://Scences/Items/pickup.tscn" id="1_t3v5q"]
+[ext_resource type="PackedScene" uid="uid://duxp353xkq011" path="res://scenes/Items/pickup.tscn" id="1_t3v5q"]
 [ext_resource type="Texture2D" uid="uid://dkkyju4e2ogij" path="res://Assets/Items/_sprites_props_and_UI.png" id="2_3qi3a"]
 
 [node name="BluePotion" instance=ExtResource("1_t3v5q")]

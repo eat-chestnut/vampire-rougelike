@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://duxp353xkq011"]
 
-[ext_resource type="Script" uid="uid://bipv281vrtf06" path="res://Scences/Items/collision_shape_2d.gd" id="1_4o7mm"]
-[ext_resource type="Script" uid="uid://bi8av87vcugj5" path="res://Scences/Items/pickup.gd" id="1_vr248"]
+[ext_resource type="Script" uid="uid://bipv281vrtf06" path="res://scenes/Items/collision_shape_2d.gd" id="1_4o7mm"]
+[ext_resource type="Script" uid="uid://bi8av87vcugj5" path="res://scenes/Items/pickup.gd" id="1_vr248"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oru8p"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://5ptke7eo6d4f"]
 
-[ext_resource type="Script" uid="uid://b0gvoxnwtgqkg" path="res://Scences/projectile.gd" id="1_r8fh4"]
-[ext_resource type="PackedScene" uid="uid://b5brejnca20x" path="res://Scences/Player/impact_effect.tscn" id="2_d3pm1"]
+[ext_resource type="Script" uid="uid://b0gvoxnwtgqkg" path="res://scenes/projectile.gd" id="1_r8fh4"]
+[ext_resource type="PackedScene" uid="uid://b5brejnca20x" path="res://scenes/Player/impact_effect.tscn" id="2_d3pm1"]
 [ext_resource type="Texture2D" uid="uid://bfo7ubr5vtovf" path="res://Assets/Items/bullet.png" id="2_ycon4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3pm1"]

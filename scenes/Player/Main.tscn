@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=4 uid="uid://bocbhe7il2ivc"]
 
 [ext_resource type="TileSet" uid="uid://duf6c0we11hso" path="res://Resources/tileset.tres" id="1_3su1p"]
-[ext_resource type="PackedScene" uid="uid://dgupqoxka7dbb" path="res://Scences/UI/ui.tscn" id="1_ntsx5"]
-[ext_resource type="PackedScene" uid="uid://dfjo61auj2teo" path="res://Scences/Player/player.tscn" id="1_otw6a"]
-[ext_resource type="PackedScene" uid="uid://70ecrklcvcsc" path="res://Scences/Health/health.tscn" id="4_2c0mx"]
-[ext_resource type="PackedScene" uid="uid://caed1qesi34bo" path="res://Scences/Enemy/enemy_spawer.tscn" id="5_ntsx5"]
+[ext_resource type="PackedScene" uid="uid://dgupqoxka7dbb" path="res://scenes/UI/ui.tscn" id="1_ntsx5"]
+[ext_resource type="PackedScene" uid="uid://dfjo61auj2teo" path="res://scenes/Player/player.tscn" id="1_otw6a"]
+[ext_resource type="PackedScene" uid="uid://70ecrklcvcsc" path="res://scenes/Health/health.tscn" id="4_2c0mx"]
+[ext_resource type="PackedScene" uid="uid://caed1qesi34bo" path="res://scenes/Enemy/enemy_spawer.tscn" id="5_ntsx5"]
 
 [sub_resource type="TileSet" id="TileSet_3su1p"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgupqoxka7dbb"]
 
-[ext_resource type="PackedScene" uid="uid://dsm3cpcb68jn5" path="res://Scences/Health/health_bar.tscn" id="1_blede"]
+[ext_resource type="PackedScene" uid="uid://dsm3cpcb68jn5" path="res://scenes/Health/health_bar.tscn" id="1_blede"]
 
 [node name="UI" type="CanvasLayer"]
 

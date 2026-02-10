@@ -9,79 +9,49 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "",
-"class": "BakedFlowFields",
-"language": "NativeScript",
-"path": "res://addons/tilemap_flowfields/classes/baked_flow_fields.gdns"
-}, {
-"base": "RigidBody2D",
-"class": "Character",
-"language": "GDScript",
-"path": "res://characters/character.gd"
-}, {
-"base": "Label",
-"class": "ColorLabel",
-"language": "GDScript",
-"path": "res://windows/color_label.gd"
-}, {
-"base": "Character",
+"base": "CharacterBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://characters/enemies/enemy.gd"
-}, {
-"base": "Resource",
-"class": "FlowField",
-"language": "NativeScript",
-"path": "res://addons/tilemap_flowfields/classes/flow_field.gdns"
-}, {
-"base": "Node",
-"class": "FlowFieldGenerator",
-"language": "NativeScript",
-"path": "res://addons/tilemap_flowfields/classes/flow_field_generator.gdns"
-}, {
-"base": "Node",
-"class": "FlowFieldTileCost",
-"language": "NativeScript",
-"path": "res://addons/tilemap_flowfields/classes/flow_field_tile_cost.gdns"
-}, {
-"base": "Reference",
-"class": "Game_Enums",
-"language": "GDScript",
-"path": "res://managers/game_enums.gd"
+"path": "res://scenes/Enemy/enemy.gd"
 }, {
 "base": "Node2D",
-"class": "MapBase",
+"class": "Health",
 "language": "GDScript",
-"path": "res://maps/Map.gd"
+"path": "res://scenes/Health/health.gd"
 }, {
-"base": "Character",
+"base": "Node2D",
+"class": "ItemDropper",
+"language": "GDScript",
+"path": "res://scenes/Enemy/item_dropper.gd"
+}, {
+"base": "Resource",
+"class": "ItemSpawnResource",
+"language": "GDScript",
+"path": "res://Resources/item_spawn_resource.gd"
+}, {
+"base": "Node2D",
+"class": "KnockBack",
+"language": "GDScript",
+"path": "res://scenes/knock_back.gd"
+}, {
+"base": "CharacterBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://characters/players/player.gd"
+"path": "res://scenes/Player/player.gd"
 }, {
-"base": "Reference",
-"class": "PlayerProperty",
+"base": "Node2D",
+"class": "Projectile",
 "language": "GDScript",
-"path": "res://characters/players/player_property.gd"
-}, {
-"base": "Node",
-"class": "Resource_Manager",
-"language": "GDScript",
-"path": "res://managers/resource_manager.gd"
+"path": "res://scenes/projectile.gd"
 }]
 _global_script_class_icons={
-"BakedFlowFields": "",
-"Character": "",
-"ColorLabel": "",
 "Enemy": "",
-"FlowField": "",
-"FlowFieldGenerator": "",
-"FlowFieldTileCost": "",
-"Game_Enums": "",
-"MapBase": "",
+"Health": "",
+"ItemDropper": "",
+"ItemSpawnResource": "",
+"KnockBack": "",
 "Player": "",
-"PlayerProperty": "",
-"Resource_Manager": ""
+"Projectile": ""
 }
 
 [application]
@@ -91,8 +61,6 @@ run/main_scene="uid://bocbhe7il2ivc"
 config/features=PackedStringArray("4.5", "Mobile")
 
 [autoload]
-
-RM="*res://managers/resource_manager.gd"
 
 [display]
 

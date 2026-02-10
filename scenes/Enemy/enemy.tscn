@@ -1,13 +1,13 @@
 [gd_scene load_steps=23 format=3 uid="uid://5jaue47wqb7s"]
 
-[ext_resource type="Script" uid="uid://cunjjbhodbrps" path="res://Scences/Enemy/enemy.gd" id="1_xmdyo"]
+[ext_resource type="Script" uid="uid://cunjjbhodbrps" path="res://scenes/Enemy/enemy.gd" id="1_xmdyo"]
 [ext_resource type="Texture2D" uid="uid://cq70vdfkq00jg" path="res://Assets/Enemy/demon_.png" id="2_5cwm4"]
-[ext_resource type="PackedScene" uid="uid://70ecrklcvcsc" path="res://Scences/Health/health.tscn" id="3_5cwm4"]
-[ext_resource type="PackedScene" uid="uid://dsm3cpcb68jn5" path="res://Scences/Health/health_bar.tscn" id="4_awr2l"]
-[ext_resource type="PackedScene" uid="uid://deabiidv8snce" path="res://Scences/Enemy/item_dropper.tscn" id="5_24j6t"]
+[ext_resource type="PackedScene" uid="uid://70ecrklcvcsc" path="res://scenes/Health/health.tscn" id="3_5cwm4"]
+[ext_resource type="PackedScene" uid="uid://dsm3cpcb68jn5" path="res://scenes/Health/health_bar.tscn" id="4_awr2l"]
+[ext_resource type="PackedScene" uid="uid://deabiidv8snce" path="res://scenes/Enemy/item_dropper.tscn" id="5_24j6t"]
 [ext_resource type="Script" uid="uid://cr3phy4dxwgef" path="res://Resources/item_spawn_resource.gd" id="6_hcay5"]
-[ext_resource type="PackedScene" uid="uid://b5t7ey71e1dnk" path="res://Scences/Items/red_potion.tscn" id="7_7n7qs"]
-[ext_resource type="PackedScene" uid="uid://c6ni14gjxl6t4" path="res://Scences/Items/blue_potion.tscn" id="8_77pr6"]
+[ext_resource type="PackedScene" uid="uid://b5t7ey71e1dnk" path="res://scenes/Items/red_potion.tscn" id="7_7n7qs"]
+[ext_resource type="PackedScene" uid="uid://c6ni14gjxl6t4" path="res://scenes/Items/blue_potion.tscn" id="8_77pr6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awr2l"]
 size = Vector2(10, 15)

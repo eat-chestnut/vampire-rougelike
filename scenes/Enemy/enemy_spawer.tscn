@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://caed1qesi34bo"]
+
+[ext_resource type="Script" uid="uid://bfa1losm1ru5f" path="res://scenes/Enemy/enemy_spawer.gd" id="1_kq2bl"]
+[ext_resource type="PackedScene" uid="uid://5jaue47wqb7s" path="res://scenes/Enemy/enemy.tscn" id="2_5o8y7"]
+
+[node name="EnemySpawer" type="Node2D"]
+script = ExtResource("1_kq2bl")
+enemy_scene = ExtResource("2_5o8y7")
+
+[node name="Timer" type="Timer" parent="."]
